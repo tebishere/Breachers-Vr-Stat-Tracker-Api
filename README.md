@@ -50,7 +50,7 @@ GET /health
 ```
 
 ```json
-{ "ok": true, "service": "breachers-api-proxy", "version": "1.4.0" }
+{ "ok": true, "service": "breachers-api-proxy", "version": "1.4.1" }
 ```
 
 ### Game data
@@ -148,6 +148,12 @@ GET /api/search?name={username}
 ```
 
 Finds players matching a username. Each result includes the player's ID, which you need for the stats endpoints. The name is required and can be up to 40 characters.
+
+If no players match, or the name isn't a valid player name, you get an empty result instead of an error:
+
+```json
+{ "success": true, "users": [], "count": 0, "message": "No players found for that name." }
+```
 
 ### Player stats
 
